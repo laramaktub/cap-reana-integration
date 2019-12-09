@@ -1,0 +1,114 @@
+{
+    "name": "cap-reana-cookiecutter-template",
+    "version": "1.0.0",
+    "description": "A cookiecutter to create a cap-reana template for reproducible research.",
+    "authors": [
+        "Lara Lloret Iglesias <lara@cern.ch>"
+    ],
+    "cookiecutter_version": "2.0.0",
+    "license": "MIT",
+    "url": "https://github.com/laramaktub/cap-reana-template",
+    "variables": [
+
+        {   "name": "project_name",
+            "default": "cap-reana-analysis",
+            "prompt": "Enter the project name",
+            "description": "Please enter a name for the project name",
+            "type": "string"
+
+        },
+        {   "name": "reana_version",
+            "default": "0.6.0",
+            "prompt_user": false
+
+        },
+
+
+        {   "name": "file_name",
+            "default": "reana",
+            "prompt": "Enter the file name",
+            "description": "Please enter a name for your reana configuration file",
+            "type": "string"
+
+        },
+
+        {
+            "name": "is_cadi",
+            "default": false,
+            "prompt": "Does your analysis has a CADI ID (y/n)?",
+            "description": "Please indicate whether this analysis has an assigned CADI ID.",
+            "type": "yes_no"
+        },
+        {
+            "name": "cadi_id",
+            "default": "XXX-00-000",
+            "prompt": "What's your CADI ID?",
+            "description": "Please enter a valid CADI ID.",
+            "type": "string",
+            "skip_if": "{{cookiecutter.is_cadi == False}}",
+            "validation": "[A-Z][A-Z][A-Z]\\-[0-9][0-9]\\-[0-9][0-9][0-9]",
+            "validation_flag": "verbose"
+
+        },
+        {
+            "name": "author_name",
+            "default": "",
+            "prompt": "Who is the main author of the code?",
+            "description": "Please enter the name of the main code author. This will be the contact person of the analysis.",
+            "type": "string",
+            "skip_if": "{{cookiecutter.is_cadi==True}}"
+        },
+        {
+            "name": "repo_name",
+            "default": "www.github.com/your_repo",
+            "prompt": "Enter your github repository?",
+            "description": "Please enter the URL of the github/gitlab repository.",
+            "type": "string"
+        },
+        {
+            "name": "year",
+            "default": "{% now 'utc', '%Y' %}",
+            "prompt": "Enter the year of the analysis",
+            "type": "string",
+            "skip_if": "{{cookiecutter.is_cadi==True}}"
+
+        },
+        {
+            "name": "short_description",
+            "default": "Short description of the analysis",
+            "prompt": "Please enter a short description of the analysis",
+            "skip_if": "{{cookiecutter.is_cadi==True}}",
+            "type": "string"
+        },
+        {
+            "name": "the_input",
+            "default": "input/input.yml",
+            "prompt": "Enter the full path to your input",
+            "description": "Full path within your repository to your input file (.yml)",
+            "type": "string"
+        },
+        {
+            "name": "output_file",
+            "default": "result.pdf",
+            "prompt": "Enter the file name of the analysis output",
+            "description": "File name of the analysis output",
+            "type": "string"
+        },
+        {
+            "name": "workflow_type",
+            "default": "cwl",
+            "prompt": "Enter the type of workflow",
+            "description": "Type of workflow to be used by REANA",
+            "choices": ["cwl","serial"],
+            "type": "string"
+        },
+        {
+            "name": "the_workflow",
+            "default": "workflow/workflow.cwl",
+            "prompt": "Enter the full path to your workflow file",
+            "description": "Full path within your repository to your workflow",
+            "do_if": "{{cookiecutter.workflow_type == 'cwl'}}",
+            "type": "string"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+version: {{cookiecutter.reana_version}}
+inputs:
+  parameters:
+    input: {{cookiecutter.the_input}}
+  directories:
+    - data
+    - code
+outputs:
+  files:
+   - outputs/{{cookiecutter.output_file}}
+workflow:
+  type: {{cookiecutter.workflow_type}}
+  file: {{cookiecutter.the_workflow}}
+
