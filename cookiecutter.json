@@ -91,15 +91,15 @@
             "name": "input_folders",
             "default": "code",
             "prompt": "Enter the folders you need as input for your analysis",
-            "description": "Folder containing information required for running your analysis workflow",
+            "description": "Folder containing information required for running your analysis workflow (comma separated)",
             "type": "string"
         },
 
         {
             "name": "output_files",
             "default": "result.pdf",
-            "prompt": "Enter the file name of the analysis output",
-            "description": "File name of the analysis output",
+            "prompt": "Enter the file names of the analysis output",
+            "description": "File name of the analysis output (comma separated)",
             "type": "string"
         },
         {
