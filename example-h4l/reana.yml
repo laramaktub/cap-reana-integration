@@ -3,12 +3,12 @@ inputs:
   parameters:
     input: input/input.yml
   directories:
-- code
-- data
+   - code
+   - data
 
 outputs:
   files:
-- outputs/mass4l_combine_userlvl3.pdf
+  - outputs/mass4l_combine_userlvl3.pdf
 
 workflow:
   type: cwl
