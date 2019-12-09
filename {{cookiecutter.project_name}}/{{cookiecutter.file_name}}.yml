@@ -5,7 +5,7 @@ inputs:
   directories:
 {% set list1 = cookiecutter.input_folders.split(',') -%}
 {% for list in list1 -%}
-{{" " | safe*2}} - {{ list | replace(" ", "") }}
+{{" " | safe*2}}- {{ list | replace(" ", "") }}
 {% endfor %}
 outputs:
   files:
