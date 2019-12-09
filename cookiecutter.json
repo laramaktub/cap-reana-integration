@@ -81,14 +81,22 @@
             "type": "string"
         },
         {
-            "name": "the_input",
+            "name": "input_param",
             "default": "input/input.yml",
-            "prompt": "Enter the full path to your input",
-            "description": "Full path within your repository to your input file (.yml)",
+            "prompt": "Enter the full path to your input parameters",
+            "description": "Full path within your repository to your input parameters file (.yml)",
             "type": "string"
         },
         {
-            "name": "output_file",
+            "name": "input_folders",
+            "default": "code",
+            "prompt": "Enter the folders you need as input for your analysis",
+            "description": "Folder containing information required for running your analysis workflow",
+            "type": "string"
+        },
+
+        {
+            "name": "output_files",
             "default": "result.pdf",
             "prompt": "Enter the file name of the analysis output",
             "description": "File name of the analysis output",
