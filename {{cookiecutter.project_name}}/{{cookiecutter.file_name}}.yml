@@ -3,12 +3,19 @@ inputs:
   parameters:
     input: {{cookiecutter.input_param}}
   directories:
-    - data
-    - code
+{% set list1 = cookiecutter.input_folders.split(',') -%}
+{% for list in list1 -%}
+- {{ list | replace(" ", "") }}
+{% endfor %}
 outputs:
   files:
-   - outputs/{{cookiecutter.output_file}}
+{% set list2 = cookiecutter.output_files.split(',') -%}
+{% for list in list2 -%}
+- outputs/{{list|replace(" ","")}}
+{% endfor %}
 workflow:
   type: {{cookiecutter.workflow_type}}
   file: {{cookiecutter.the_workflow}}
+
+
 
