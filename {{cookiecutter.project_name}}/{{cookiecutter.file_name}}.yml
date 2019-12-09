@@ -1,7 +1,7 @@
 version: {{cookiecutter.reana_version}}
 inputs:
   parameters:
-    input: {{cookiecutter.the_input}}
+    input: {{cookiecutter.input_param}}
   directories:
     - data
     - code
